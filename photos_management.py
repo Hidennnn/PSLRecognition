@@ -7,8 +7,7 @@ from preprocessing import vector_of_points, distance
 from custom_types import Vector
 
 
-def load_photos(source: str, error_file_name: str, labels: dict, test: List[int],
-                append_photos: bool = True) -> NoReturn:
+def load_photos(source: str, error_file_name: str, labels: dict, append_photos: bool = True) -> NoReturn:
 
     vector_name = "vector.csv"
     distance_name = "distance.csv"
@@ -19,14 +18,10 @@ def load_photos(source: str, error_file_name: str, labels: dict, test: List[int]
 
     for folder in os.listdir(source):
         for file in os.listdir(f"{source}\\{folder}"):
-            in_test = 0
-            if file in test:
-                in_test = 1
-
             vector = vector_management(f"{source}\\{folder}\\{file}", file, vector_name,
-                                       error_file_name, labels[file.split("_")[0]], in_test)
+                                       error_file_name, labels[file.split("_")[0]])
 
-            distance_management(vector, distance_name, labels[file.split("_")[0]], in_test)
+            distance_management(vector, distance_name, labels[file.split("_")[0]])
             write_csv(files_name, [file])
 
 
@@ -58,7 +53,7 @@ def write_csv(directory: str, values: List[Any]) -> NoReturn:
 
 
 def vector_management(source: str, file: str, vector_name: str,
-                      error_file_name: str, class_index: int, test_file: int) -> Vector | None:
+                      error_file_name: str, class_index: int) -> Vector | None:
     vector = vector_of_points(source)
 
     if vector is None:
@@ -72,14 +67,13 @@ def vector_management(source: str, file: str, vector_name: str,
         to_save_in_csv.append(point.y)
 
     to_save_in_csv.append(class_index)
-    to_save_in_csv.append(test_file)
 
     write_csv(vector_name, to_save_in_csv)
 
     return vector
 
 
-def distance_management(vector: Vector, distance_name: str, class_index: int, test_file: int) -> NoReturn:
+def distance_management(vector: Vector, distance_name: str, class_index: int) -> NoReturn:
     distance_values = distance(vector)
 
     to_save_in_csv = []

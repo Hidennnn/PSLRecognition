@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Tuple, NoReturn
 import os
 
-from utils import rescale_frame, center_of_image, photo_mirror
+from utils import rescale_image, center_of_image, photo_mirror
 from custom_types import Image
 
 import cv2
@@ -50,7 +50,7 @@ def manage_augmentation(original_image: Image, center: Tuple[float | int, float 
 
 
 def resize_and_save_photo(original_image: Image, size_ratio: int, name_of_new_photo: str) -> Image:
-    image_resized = rescale_frame(original_image, size_ratio)
+    image_resized = rescale_image(original_image, size_ratio)
     cv2.imwrite(name_of_new_photo, image_resized)
 
     return image_resized
