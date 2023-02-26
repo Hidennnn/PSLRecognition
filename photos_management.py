@@ -7,8 +7,25 @@ from preprocessing import vector_of_points, distance
 from custom_types import Vector
 
 
-def load_photos(source: str, error_file_name: str, labels: dict, append_photos: bool = True) -> NoReturn:
+def load_photos(source: str, error_file_name: str, labels: dict, vector_file_name: str = "vector.csv",
+                distance_file_name: str = "distance.csv", names_of_images_file_name: str = "files.csv",
+                append_photos: bool = True) -> NoReturn:
+    # TODO - change files names and add checking if files exist.
+    """
+    Function detects characteristic points on images from source and computes distances between points. Then vector of
+    points, list of distances and names of files to csv files (vector_file_name, distance_file_name,
+    names_of_images_file_name). Vector, distance and file name on the same index in file are from the same image.
+    Images have to be sort in folders by class in source.
 
+    :param source: Path to place where folders with images are.
+    :param error_file_name: File where will be saved names of images where characteristic points won't being detected.
+    :param labels: List of class to which images belong.
+    :param vector_file_name: Name of file where vector of points will be saved.
+    :param distance_file_name: Name of file where distances will be saved.
+    :param names_of_images_file_name: Name of file where file names will be saved.
+    :param append_photos: On False function inits new csv files. On True function appends to existed files.
+    :return: No return.
+    """
     vector_name = "vector.csv"
     distance_name = "distance.csv"
     files_name = "files.csv"
@@ -81,6 +98,5 @@ def distance_management(vector: Vector, distance_name: str, class_index: int) ->
         to_save_in_csv.append(value)
 
     to_save_in_csv.append(class_index)
-    to_save_in_csv.append(test_file)
 
     write_csv(distance_name, to_save_in_csv)

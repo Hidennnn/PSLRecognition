@@ -1,8 +1,8 @@
 from __future__ import annotations
 from typing import List, NamedTuple, Tuple, Any
-import os
 
-from custom_types import Point, Vector
+from custom_types import Point, Vector, Image
+from custom_exceptions import PathToImageNotExistError, ImageNotExistError
 
 import cv2
 import mediapipe as mp
@@ -10,10 +10,23 @@ from math import sqrt
 
 
 def euclidean_distance(point1: Point, point2: Point) -> float:
+    """
+    Function compute Euclidean distance between 2 points in 2D.
+    :param point1: First point.
+    :param point2: Second point.
+    :return: Euclidean distance.
+    """
     return sqrt((point1.x - point2.x) ** 2 + (point1.y - point2.y) ** 2)
 
 
 def test_detection(results: NamedTuple) -> Tuple[Any, Any, Any] | None:
+    """
+    Function checks if Holistic model from MediaPipe detected pose, left hand and right hand.
+
+    :param results: Results of Holistic model detection.
+    :return: If Holistic detect everything what is required, landmarks of pose, left hand and right hand are returned
+        seperetly. Otherwise, None is returned.
+    """
     try:
         pose = results.pose_landmarks.landmark
     except AttributeError:
@@ -35,14 +48,22 @@ def test_detection(results: NamedTuple) -> Tuple[Any, Any, Any] | None:
     return pose, left_hand, right_hand
 
 
-def vector_of_points(source: str) -> Vector | None:
-    if os.path.exists(source):
-        img = cv2.imread(source)
+def vector_of_points(source: str | Image) -> Vector | None:
+    """
+    Function detect characteristic points of elbows, shoulders, and hands and return as vector of points in 2D
+    :param source: Path to image or Image.
+    :return: Vector of points or None if something wasn't detected.
+    """
+    if isinstance(source, str):
+        image = cv2.imread(source)
+        if not image:
+            raise PathToImageNotExistError
     else:
-        print("Source doesn't exist")
-        return
+        image = source
+        if not image:
+            raise ImageNotExistError
 
-    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     with mp.solutions.holistic.Holistic(static_image_mode=True) as holistic:
         results = holistic.process(img_rgb)
@@ -66,6 +87,11 @@ def vector_of_points(source: str) -> Vector | None:
 
 
 def distance(vector: Vector) -> List[float]:
+    """
+    Function compute distance between every point in vector.
+    :param vector: Vector of 2D points.
+    :return: List of computed distances.
+    """
     dist = []
     for x in range(45):
         for z in range(x + 1, 46):
