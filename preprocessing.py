@@ -31,19 +31,19 @@ def test_detection(results: NamedTuple) -> Tuple[Any, Any, Any] | None:
         pose = results.pose_landmarks.landmark
     except AttributeError:
         print("Holistic doesn't detect pose.")
-        return
+        return None, None, None
 
     try:
         left_hand = results.left_hand_landmarks.landmark
     except AttributeError:
         print("Holistic doesn't detect left hand.")
-        return
+        return None, None, None
 
     try:
         right_hand = results.right_hand_landmarks.landmark
     except AttributeError:
         print("Holistic doesn't detect right hand pose.")
-        return
+        return None, None, None
 
     return pose, left_hand, right_hand
 
@@ -60,7 +60,7 @@ def vector_of_points(source: str | Image) -> Vector | None:
             raise PathToImageNotExistError
     else:
         image = source
-        if not image:
+        if image is None:
             raise ImageNotExistError
 
     img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
