@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, Tuple, NoReturn
 import os
 
-from utils import rescale_image, center_of_image, photo_mirror
+from utils import rescale_image, center_of_image, image_mirror
 from custom_types import Image
 
 import cv2
@@ -17,7 +17,7 @@ def make_augmentation(database: str, rescale_ratios: List[int], photos_in_classe
             file_base = labels[class_index]
 
             original_image = cv2.imread(f"{database}\\{folder}\\{file}")
-            mirrored_image = photo_mirror(original_image,
+            mirrored_image = image_mirror(original_image,
                                           f"{database}\\{folder}\\{file_base}_{photos_in_classes[class_index]}.jpg")
 
             photos_in_classes[class_index] += 1
