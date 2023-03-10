@@ -2,45 +2,60 @@ from __future__ import annotations
 from typing import NoReturn, Tuple
 
 from custom_types import Image
-from custom_exceptions import PathToImageNotExistError, PathToVideoNotExistError, ImageNotExistError
+from custom_exceptions import PathToImageNotExistsError, PathToVideoNotExistsError, ImageNotExistsError
 
 import cv2
 import mediapipe as mp
 import numpy as np
 
 
-def center_of_image(image: Image) -> Tuple[float, float]:
+def open_img(img: Image | str) -> Image:
+    if isinstance(img, str):
+        img = cv2.imread(str)
+        if not img:
+            raise PathToImageNotExistsError
+    else:
+        if not img:
+            raise ImageNotExistsError
+
+    return img
+
+
+def center_of_image(img: Image | str) -> Tuple[float, float]:
     """
-    Function to compute center of image.
+    Function to compute image center.
 
-    :param image: Image which center we want to compute.
+    :param img: Image or path to Image which center will be computed.
 
-    :return: center: Center coordinate (x,y).
+    :return: center: Image center coordinates in format (x,y).
     """
-    try:
-        (h, w) = image.shape[:2]
-        return w / 2, h / 2
-    except AttributeError:
-        raise ImageNotExistError
+
+    img = open_img(img)
+
+    (h, w) = img.shape[:2]
+    return w / 2, h / 2
 
 
-def rescale_image(image: Image, percent: int = 100) -> Image:
+def rescale_img(img: Image | str, rescale_factor: int = 100) -> Image:
     """
-    Function rescales image.
+    #TODO revised about rescale_factor
+    Function to rescale image.
 
-    :param image: Image which we want to rescale. If image is None, AttributeError is raised.
-    :param percent: Percent of original size returned image will be.
+    :param img: Image or path to Image which will be rescaled.
+    :param rescale_factor: How much percent of original Image will .
     :return: rescaled_image: Rescaled image which is percent of original size.
     """
 
+    img = open_img(img)
+
     try:
-        width = int(image.shape[1] * percent / 100)
-        height = int(image.shape[0] * percent / 100)
+        width = int(img.shape[1] * rescale_factor / 100)
+        height = int(img.shape[0] * rescale_factor / 100)
         dim = (width, height)
 
-        return cv2.resize(image, dim, interpolation=cv2.INTER_AREA)
+        return cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
     except AttributeError:
-        raise ImageNotExistError
+        raise ImageNotExistsError
 
 
 def drawing_points_video(source: str | int, rescale: int = 100, min_detection_confidence: float = 0.5,
@@ -68,7 +83,7 @@ def drawing_points_video(source: str | int, rescale: int = 100, min_detection_co
     cap = cv2.VideoCapture(source)
 
     if not cap.isOpened():
-        raise PathToVideoNotExistError
+        raise PathToVideoNotExistsError
 
     while cap.isOpened():
         success, img = cap.read()
@@ -108,13 +123,13 @@ def drawing_points_image(source: str | Image, rescale: int = 100, min_detection_
     if isinstance(source, str):
         img = cv2.imread(source)
         if not img:
-            raise PathToImageNotExistError
+            raise PathToImageNotExistsError
     else:
         img = source
         if not img:
-            raise ImageNotExistError
+            raise ImageNotExistsError
 
-    img = rescale_image(img, rescale)
+    img = rescale_img(img, rescale)
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
     with mp.solutions.holistic.Holistic(
@@ -171,11 +186,11 @@ def image_mirror(source: str | Image, destination_path: str = None) -> Image:
     if isinstance(source, str):
         img = cv2.imread(source)
         if not img:
-            raise PathToImageNotExistError
+            raise PathToImageNotExistsError
     else:
         img = source
         if not img:
-            raise ImageNotExistError
+            raise ImageNotExistsError
 
     img_x = np.flip(img, axis=1)
 

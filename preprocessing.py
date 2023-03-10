@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import List, NamedTuple, Tuple, Any
 
 from custom_types import Point, Vector, Image
-from custom_exceptions import PathToImageNotExistError, ImageNotExistError
+from custom_exceptions import PathToImageNotExistsError, ImageNotExistsError
 
 import cv2
 import mediapipe as mp
@@ -57,11 +57,11 @@ def vector_of_points(source: str | Image) -> Vector | None:
     if isinstance(source, str):
         image = cv2.imread(source)
         if not image:
-            raise PathToImageNotExistError
+            raise PathToImageNotExistsError
     else:
         image = source
         if image is None:
-            raise ImageNotExistError
+            raise ImageNotExistsError
 
     img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 

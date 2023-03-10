@@ -1,16 +1,20 @@
 from __future__ import annotations
+from os.path import exists
 import os
 import csv
 from typing import List, Any, NoReturn
 
 from preprocessing import vector_of_points, distance
 from custom_types import Vector
+from custom_exceptions import CSVFilesExist, CSVFilesNotExist, BadNumberOfFileNames
+
+
+# TODO Need to change distances on 2 files - features and labels.
 
 
 def load_photos(source: str, error_file_name: str, labels: dict, vector_file_name: str = "vector.csv",
-                distance_file_name: str = "distance.csv", names_of_images_file_name: str = "files.csv",
+                distance_file_name: str = "distance.csv", imgs_names_file_name: str = "files.csv",
                 append_photos: bool = True) -> NoReturn:
-    # TODO - change files names and add checking if files exist.
     """
     Function detects characteristic points on images from source and computes distances between points. Then vector of
     points, list of distances and names of files to csv files (vector_file_name, distance_file_name,
@@ -22,27 +26,39 @@ def load_photos(source: str, error_file_name: str, labels: dict, vector_file_nam
     :param labels: List of class to which images belong.
     :param vector_file_name: Name of file where vector of points will be saved.
     :param distance_file_name: Name of file where distances will be saved.
-    :param names_of_images_file_name: Name of file where file names will be saved.
-    :param append_photos: On False function inits new csv files. On True function appends to existed files.
+    :param imgs_names_file_name: Name of file where file names will be saved.
+    :param append_photos: On False function initiates new csv files. On True function appends to existed files.
     :return: No return.
     """
-    vector_name = "vector.csv"
-    distance_name = "distance.csv"
-    files_name = "files.csv"
+
+    if (exists(vector_file_name) or exists(distance_file_name) or exists(imgs_names_file_name)) and not append_photos:
+        raise CSVFilesExist
+
+    if not (exists(vector_file_name) and exists(distance_file_name) and exists(imgs_names_file_name)) and append_photos:
+        raise CSVFilesNotExist
 
     if not append_photos:
-        init_csv([vector_name, distance_name, files_name])
+        init_csv([vector_file_name, distance_file_name, imgs_names_file_name])
 
     for folder in os.listdir(source):
         for file in os.listdir(f"{source}\\{folder}"):
-            vector = vector_management(f"{source}\\{folder}\\{file}", file, vector_name,
+            vector = vector_management(f"{source}\\{folder}\\{file}", file, vector_file_name,
                                        error_file_name, labels[file.split("_")[0]])
 
-            distance_management(vector, distance_name, labels[file.split("_")[0]])
-            write_csv(files_name, [file])
+            distance_management(vector, distance_file_name, labels[file.split("_")[0]])
+            write_csv(imgs_names_file_name, [file])
 
 
 def init_csv(files: List[str]) -> NoReturn:
+    """
+    Function initiates 3 csv files where will be saved vectors, distances and files names.
+    :param files: 3 names of files.
+    :return: No return
+    """
+
+    if len(files) != 3:
+        raise BadNumberOfFileNames(3, len(files))
+
     columns_name = [str(x) for x in range(92)]
     columns_name.append("label")
 
@@ -91,6 +107,14 @@ def vector_management(source: str, file: str, vector_name: str,
 
 
 def distance_management(vector: Vector, distance_name: str, class_index: int) -> NoReturn:
+    """
+    Function computes distances between every point in vector and save it to csv file.
+    :param vector: Vector of characteristic points.
+    :param distance_name: Name of file where distances will be saved.
+    :param class_index: Index of true class of features.
+    :return: No return.
+    """
+
     distance_values = distance(vector)
 
     to_save_in_csv = []

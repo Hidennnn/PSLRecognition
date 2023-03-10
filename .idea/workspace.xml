@@ -7,10 +7,16 @@
     <list default="true" id="f11437f9-ba2a-4175-9b4c-f874966021b6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/augmentation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/name_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/name_files.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neural_network_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_test.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neural_network_train.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_train.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/photos_management.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1676589472955</updated>
       <workItem from="1677350245698" duration="8422000" />
+      <workItem from="1677844428473" duration="97000" />
     </task>
     <servers />
   </component>
