@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import NoReturn
 
 
-class PathToImageNotExistsError(Exception):
+class PathToImageIsIncorrectError(Exception):
     """
     Raise when images with certain path doesn't exist. In the most cases it is problem with incorrect path in
     cv2.imread().
@@ -12,7 +12,7 @@ class PathToImageNotExistsError(Exception):
         super().__init__(self.message)
 
 
-class PathToVideoNotExistsError(Exception):
+class PathToVideoIsIncorrectError(Exception):
     """
     Raise when video with certain path doesn't exist. In the most cases it is problem with cv2.VideoCapture()
     """
@@ -20,6 +20,14 @@ class PathToVideoNotExistsError(Exception):
         self.message = "Video on this path doesn't exist."
         super().__init__(self.message)
 
+class CameraIndexIsIncorrect(Exception):
+    """
+    Raise when camera with given index is not exist.
+    """
+
+    def __init__(self) -> NoReturn:
+        self.message = "Camera with given index is not exist."
+        super().__init__(self.message)
 
 class ImageNotExistsError(Exception):
     """
