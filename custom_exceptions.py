@@ -2,6 +2,33 @@ from __future__ import annotations
 from typing import NoReturn
 
 
+class PoseNotDetectedError(Exception):
+    """
+    Raise when pose landmarks is not detected.
+    """
+    def __init__(self) -> NoReturn:
+        self.message = "Pose is not detected."
+        super().__init__(self.message)
+
+
+class LeftHandNotDetectedError(Exception):
+    """
+    Raise when left-hand landmarks is not detected.
+    """
+    def __init__(self) -> NoReturn:
+        self.message = "Left hand is not detected."
+        super().__init__(self.message)
+
+
+class RightHandNotDetectedError(Exception):
+    """
+    Raise when right-hand landmarks is not detected.
+    """
+    def __init__(self) -> NoReturn:
+        self.message = "Right hand is not detected."
+        super().__init__(self.message)
+
+
 class PathToImageIsIncorrectError(Exception):
     """
     Raise when images with certain path doesn't exist. In the most cases it is problem with incorrect path in
@@ -20,6 +47,7 @@ class PathToVideoIsIncorrectError(Exception):
         self.message = "Video on this path doesn't exist."
         super().__init__(self.message)
 
+
 class CameraIndexIsIncorrect(Exception):
     """
     Raise when camera with given index is not exist.
@@ -29,10 +57,12 @@ class CameraIndexIsIncorrect(Exception):
         self.message = "Camera with given index is not exist."
         super().__init__(self.message)
 
+
 class ImageNotExistsError(Exception):
     """
     Raise when input image not exist (by default image is None).
     """
+
     def __init__(self) -> NoReturn:
         self.message = "Image doesn't exist. Check if input image isn't None."
         super().__init__(self.message)
@@ -42,6 +72,7 @@ class CSVFilesExist(Exception):
     """
     Raise when you want to create CSV files which exist already.
     """
+
     def __init__(self) -> NoReturn:
         self.message = "CSV files exist, so you can't initiate them. (append_mode is False)"
         super().__init__(self.message)
