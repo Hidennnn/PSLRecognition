@@ -16,13 +16,13 @@ class Point:
 
 # Type Vector is a np.array which contains objects Point, generated in function make_vector_of_points.
 # Used as input in function make_distances.
-Vector = NewType("Vector", np.array)
+Vector = NewType("Vector", np.ndarray)
 
 # Type Distances is a np.array which contains distances between Points, generated in function make_distances.
 # Used as input to neural network.
-Distances = NewType("Distances", np.array)
+Distances = NewType("Distances", np.ndarray)
 
 # Type Image is a np.array which representing loaded images.
-Image = NewType("Image", np.array)
+Image = NewType("Image", np.ndarray)
 
 
