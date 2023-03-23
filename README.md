@@ -50,6 +50,6 @@ Easy way to start using - **soon!**
 
 ## Demo
 
-![](https://github.com/Hidennnn/PSL_recognition/blob/main/demo.avi)
+![](https://github.com/Hidennnn/PSL_recognition/blob/main/demo.gif)
 
 Article about the algorithm: https://drive.google.com/file/d/1BiQ1X0OU98suErqC_kA631PraXG-Kh9m/view
