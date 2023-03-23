@@ -1,21 +1,24 @@
 from typing import List, NoReturn
 import os
 
+import numpy as np
+
 
 def rename_files(path_to_base: str, path_to_not_named_images: str, labels: List[str]) -> NoReturn:
     """
-    Function to name images and move them to database. Files need to be sorted in good queue - images of next class need 
-    to be after images of before class. 
-    class.
-    :param path_to_base: Path to database where images will be moved.
-    :param path_to_not_named_images: Path to not named images.
-    :param labels: List with labels of images' class.
+    Function to name Images and move them to database. Images need to be sorted in good queue - images of next class
+    need to be after Images of before class.
+
+    :param path_to_base: Path to database where Images will be moved.
+    :param path_to_not_named_images: Path to folder with not named Images.
+    :param labels: List with images' class labels.
     :return: No return.
     """
-    list_of_numbers = []
+
+    list_of_numbers = np.array([])
 
     for folder in os.listdir(path_to_base):
-        list_of_numbers.append(len(os.listdir(f"{path_to_base}\\{folder}")))
+        np.append(list_of_numbers, [len(os.listdir(f"{path_to_base}\\{folder}"))])
 
     count = 0
     for file in os.listdir(path_to_not_named_images):

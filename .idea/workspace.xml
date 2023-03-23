@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f11437f9-ba2a-4175-9b4c-f874966021b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_management.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/augmentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/name_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/name_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_test.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_train.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_train.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photos_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/photos_management.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/photos_management.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
@@ -42,11 +39,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wikto\OneDrive\Pulpit\projekty\PSL_recognition" />

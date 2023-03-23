@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import NoReturn, NewType, List
+from typing import NoReturn, NewType
 
 import numpy as np
 
@@ -14,9 +14,15 @@ class Point:
         self.y = y
 
 
-# Type Vector is a list contain objects Point,
-# generated in function vector_of_points and used as input in function distance.
-Vector = NewType("Vector", List[Point])
+# Type Vector is a np.array which contains objects Point, generated in function make_vector_of_points.
+# Used as input in function make_distances.
+Vector = NewType("Vector", np.array)
+
+# Type Distances is a np.array which contains distances between Points, generated in function make_distances.
+# Used as input to neural network.
+Distances = NewType("Distances", np.array)
 
 # Type Image is a np.array which representing loaded images.
 Image = NewType("Image", np.array)
+
+
