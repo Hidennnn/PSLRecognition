@@ -10,7 +10,7 @@ import mediapipe as mp
 import numpy as np
 
 
-def open_img(source: Image | str) -> Image:
+def open_img(source: np.ndarray | str) -> Image:
     """
     Function to check if correct Image is passed to function or open Image from path.
 
@@ -22,12 +22,14 @@ def open_img(source: Image | str) -> Image:
 
     if isinstance(source, str):
         img = cv2.imread(source)
-        if not img:
+        if img is None:
             raise PathToImageIsIncorrectError
-    else:
+    elif isinstance(source, np.ndarray):
         img = source
-        if not img:
-            raise ImageNotExistsError
+    elif source is None:
+        raise ImageNotExistsError
+    else:
+        raise TypeError("Input must be string or Image.")
 
     return img
 
@@ -56,6 +58,9 @@ def rescale_img(source: Image | str, rescale_factor: int = 100) -> Image:
     :raises ImageNotExistsError: Image is None.
     :return: rescaled_image: Rescaled Image.
     """
+
+    if rescale_factor <= 0:
+        raise ValueError("Rescale factor must be positive integer.")
 
     img = open_img(source)
 

@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f11437f9-ba2a-4175-9b4c-f874966021b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img_management.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/arial.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/augmentation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_types.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/name_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/name_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photos_management.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/img_management.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/load_photos.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/load_photos.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/name_files.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/name_files.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neural_network_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neural_network_train.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_train.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/program.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaler_arrays.save" beforeDir="false" afterPath="$PROJECT_DIR$/scaler.save" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scaler_final.save" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_utils.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test_utils.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,15 +48,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wikto\OneDrive\Pulpit\projekty\PSL_recognition" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\OneDrive\Pulpit\projekty\PSL_recognition" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="program" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="PSL_recognition" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/program.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.program" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -59,6 +100,9 @@
       <updated>1676589472955</updated>
       <workItem from="1677350245698" duration="8422000" />
       <workItem from="1677844428473" duration="97000" />
+      <workItem from="1679761590696" duration="14000" />
+      <workItem from="1679850447411" duration="20000" />
+      <workItem from="1679862702733" duration="1775000" />
     </task>
     <servers />
   </component>
@@ -75,5 +119,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/PC/OneDrive/Pulpit/projekty/PSL_recognition/program.ipynb</url>
+          <line>182</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

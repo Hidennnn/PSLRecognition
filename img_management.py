@@ -11,8 +11,8 @@ from custom_exceptions import CSVFilesExist, CSVFilesNotExist, BadNumberOfFileNa
 
 
 def load_img(source: str, error_file_name: str, labels: dict, vector_file_name: str = "vector.csv",
-             distance_features_file_name: str = "distance_features.csv",
-             distance_labels_file_name: str = "distance_labels.csv", img_names_file_name: str = "files.csv",
+             distance_features_file_name: str = "vector_and_distances\distance_features.csv",
+             distance_labels_file_name: str = "vector_and_distances\distance_labels.csv", img_names_file_name: str = "files.csv",
              append_photos: bool = True) -> NoReturn:
     """
     Function to detect landmarks on Images from source and compute distances between every Point. Then Vector,

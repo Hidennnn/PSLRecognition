@@ -105,3 +105,13 @@ class BadNumberOfFileNames(Exception):
             self.message = "Error about number of file names are raise, but something bad happen with communicate."
 
         super().__init__(self.message)
+
+
+class VectorIsNoneError(Exception):
+    """
+    Raise when your vector is None.
+    """
+    def __init__(self) -> NoReturn:
+        self.message = "Vector is None."
+        super().__init__(self.message)
+

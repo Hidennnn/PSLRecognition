@@ -46,7 +46,11 @@ preprocessing.py - functions to make vectors and compute distances.
 utils.py - different functions to operate functions.
 
 ## How to use?
-Easy way to start using - **soon!**
+You just need to run program.py! On top of file you can adjust configuration.
+
+## Database
+https://drive.google.com/drive/folders/1ffpiODeT87HVnRcQohv3iZg0k3i7kUay?usp=sharing - Google Drive where you can 
+download vectors and distances used in projects. 
 
 ## Demo
 

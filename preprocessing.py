@@ -3,7 +3,8 @@ from typing import List, NamedTuple, Tuple, Any
 from math import sqrt
 
 from custom_types import Point, Vector, Distances, Image
-from custom_exceptions import PoseNotDetectedError, LeftHandNotDetectedError, RightHandNotDetectedError
+from custom_exceptions import PoseNotDetectedError, LeftHandNotDetectedError, RightHandNotDetectedError, \
+    VectorIsNoneError
 from utils import open_img
 
 import cv2
@@ -112,6 +113,9 @@ def make_distance(vector: Vector) -> Distances:
     :param vector: Vector of 2D points.
     :return: List of computed distances.
     """
+
+    if not vector:
+        raise VectorIsNoneError
 
     distances = Distances(np.array([]))
     for first_index in range(45):
