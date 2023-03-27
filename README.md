@@ -15,9 +15,9 @@ In static words only hand shape is important - we do not care about movement.
 - sklearn
 
 ## How does it work?
-Firstly, MediaPipe Holistic Solution detects characteristic points of hands and
-pose. In next steps only hands, elbows and shoulders points will be used. Then 
-Euclidean distances between every point are calculated which are input for Neural
+Firstly, the MediaPipe Holistic Solution detects characteristic points of hands and
+pose. In the next steps only hands, elbows and shoulders points will be used. Then 
+Euclidean distances between every point are calculated which are input for the Neural
 Network.
 
 ## Which do signs be detected?
@@ -46,11 +46,11 @@ preprocessing.py - functions to make vectors and compute distances.
 utils.py - different functions to operate functions.
 
 ## How to use?
-You just need to run program.py! On top of file you can adjust configuration.
+You just need to download labels.txt from the database, add to folder "vector_and_distances" and run program.py! On top of the program.py you can adjust configuration.
 
 ## Database
 https://drive.google.com/drive/folders/1ffpiODeT87HVnRcQohv3iZg0k3i7kUay?usp=sharing - Google Drive where you can 
-download vectors and distances used in projects. 
+download vectors and distances which were used in projects. 
 
 ## Demo
 
