@@ -110,7 +110,7 @@ def flip_and_save_photo(original_image: Image, name_of_new_photo: str, center: T
     """
 
     rotate_matrix = cv2.getRotationMatrix2D(center, flip_degree, 1)
-    image_flipped = cv2.warpAffine(original_image, rotate_matrix, center)
+    image_flipped = cv2.warpAffine(original_image, rotate_matrix, (original_image.shape[1], original_image.shape[0]))
     cv2.imwrite(name_of_new_photo, image_flipped)
 
 

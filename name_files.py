@@ -15,12 +15,13 @@ def rename_files(path_to_base: str, path_to_not_named_images: str, labels: List[
     :return: No return.
     """
 
-    list_of_numbers = np.array([])
+    list_of_numbers = []
 
     for folder in os.listdir(path_to_base):
-        np.append(list_of_numbers, [len(os.listdir(f"{path_to_base}\\{folder}"))])
+        list_of_numbers.append(len(os.listdir(f"{path_to_base}\\{folder}")))
 
     count = 0
+    labels_len = len(labels)
     for file in os.listdir(path_to_not_named_images):
         os.rename(
                 f"{path_to_not_named_images}\\{file}",
@@ -28,5 +29,5 @@ def rename_files(path_to_base: str, path_to_not_named_images: str, labels: List[
                 )
         list_of_numbers[count] += 1
         count += 1
-        if count == 27:
+        if count == labels_len:
             count = 0

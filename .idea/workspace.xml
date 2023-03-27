@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f11437f9-ba2a-4175-9b4c-f874966021b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/arial.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/program.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/augemntation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/augemntation.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/augmentation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/img_management.py" beforeDir="false" afterPath="$PROJECT_DIR$/img_management.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/load_photos.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/load_photos.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/name_files.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/name_files.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_test.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_train.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_train.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/name_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/name_files.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaler_arrays.save" beforeDir="false" afterPath="$PROJECT_DIR$/scaler.save" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scaler_final.save" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_utils.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test_utils.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_utils.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +44,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
@@ -103,6 +98,7 @@
       <workItem from="1679761590696" duration="14000" />
       <workItem from="1679850447411" duration="20000" />
       <workItem from="1679862702733" duration="1775000" />
+      <workItem from="1679865628525" duration="594000" />
     </task>
     <servers />
   </component>
@@ -127,6 +123,16 @@
           <url>notebook://C:/Users/PC/OneDrive/Pulpit/projekty/PSL_recognition/program.ipynb</url>
           <line>182</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/PC/OneDrive/Pulpit/projekty/PSL_recognition/test_utils.ipynb</url>
+          <line>161</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="jupyter-line">
+          <url>notebook://C:/Users/PC/OneDrive/Pulpit/projekty/PSL_recognition/test_utils.ipynb</url>
+          <line>171</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

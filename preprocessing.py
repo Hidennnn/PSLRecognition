@@ -32,7 +32,7 @@ def make_vector_of_points(source: Image | str) -> Vector:
     with mp.solutions.holistic.Holistic(static_image_mode=True) as holistic:
         results = holistic.process(img_rgb)
 
-    test_detection(results)
+    results = test_detection(results)
 
     vector = make_vector(results)
 
@@ -80,16 +80,18 @@ def make_vector(results: Tuple[Any, Any, Any]) -> Vector:
 
     pose, right_hand, left_hand = results
 
-    vector = Vector(np.array([]))
+    vector = []
 
     for point in pose[11:15]:
-        np.append(vector, [Point(point.x, point.y)])
+        vector.append(Point(point.x, point.y))
 
     for point in right_hand:
-        np.append(vector, [Point(point.x, point.y)])
+        vector.append(Point(point.x, point.y))
 
     for point in left_hand:
-        np.append(vector, [Point(point.x, point.y)])
+        vector.append(Point(point.x, point.y))
+
+    vector = Vector(np.array(vector))
 
     return vector
 
@@ -114,12 +116,14 @@ def make_distance(vector: Vector) -> Distances:
     :return: List of computed distances.
     """
 
-    if not vector:
+    if vector is None:
         raise VectorIsNoneError
 
-    distances = Distances(np.array([]))
+    distances = []
+
     for first_index in range(45):
         for second_index in range(first_index + 1, 46):
-            np.append(distances, euclidean_distance(vector[first_index], vector[second_index]))
+            distances.append(euclidean_distance(vector[first_index], vector[second_index]))
 
+    distances = Distances(np.array(distances))
     return distances

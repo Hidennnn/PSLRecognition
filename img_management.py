@@ -7,12 +7,14 @@ from typing import List, Any, NoReturn, Tuple
 from preprocessing import make_vector_of_points, make_distance
 from custom_types import Vector
 from custom_exceptions import CSVFilesExist, CSVFilesNotExist, BadNumberOfFileNames, PoseNotDetectedError, \
-                            LeftHandNotDetectedError, RightHandNotDetectedError
+    LeftHandNotDetectedError, RightHandNotDetectedError
 
 
-def load_img(source: str, error_file_name: str, labels: dict, vector_file_name: str = "vector.csv",
-             distance_features_file_name: str = "vector_and_distances\distance_features.csv",
-             distance_labels_file_name: str = "vector_and_distances\distance_labels.csv", img_names_file_name: str = "files.csv",
+def load_img(source: str, error_file_name: str, labels: dict,
+             vector_file_name: str = r"vector_and_distances\vector.csv",
+             distance_features_file_name: str = r"vector_and_distances\distance_features.csv",
+             distance_labels_file_name: str = r"vector_and_distances\distance_labels.csv",
+             img_names_file_name: str = r"vector_and_distances\files.csv",
              append_photos: bool = True) -> NoReturn:
     """
     Function to detect landmarks on Images from source and compute distances between every Point. Then Vector,
@@ -52,7 +54,7 @@ def load_img(source: str, error_file_name: str, labels: dict, vector_file_name: 
             vector = vector_management(f"{source}\\{folder}\\{file}", file, vector_file_name,
                                        labels[file.split("_")[0]], error_file_name)
 
-            distance_management(vector, distance_features_file_name, labels[file.split("_")[0]])
+            distance_management(vector, distance_features_file_name, distance_labels_file_name, labels[file.split("_")[0]])
             write_csv(img_names_file_name, [file])
 
 
@@ -128,13 +130,16 @@ def vector_management(source: str, img_name: str, vector_name: str, class_index:
     return vector
 
 
-def distance_management(vector: Vector, distance_name: str, class_index: int) -> NoReturn:
+def distance_management(vector: Vector, distance_name_features: str, distance_name_labels: str,
+                        class_index: int) -> NoReturn:
     """
     Function to compute distances between every point in Vector and save Distances to csv file.
     Help function to load_img.
 
+    :param distance_name_labels:
     :param vector: Vector of landmarks.
-    :param distance_name: File name where distances will be saved.
+    :param distance_name_features: File name where distances will be saved.
+    :param distance_name_labels: File name where labels will be saved.
     :param class_index: Index of true class of features.
     :return: No return.
     """
@@ -145,9 +150,13 @@ def distance_management(vector: Vector, distance_name: str, class_index: int) ->
     for value in distance_values:
         to_save_in_csv.append(value)
 
-    to_save_in_csv.append(class_index)
+    write_csv(distance_name_features, to_save_in_csv)
 
-    write_csv(distance_name, to_save_in_csv)
+    labels = [0 for _ in range(27)]
+    labels[class_index] = 1
+
+    write_csv(distance_name_labels, labels)
+
 
 def write_csv(directory: str, values: List[Any]) -> NoReturn:
     """

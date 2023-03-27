@@ -3,7 +3,7 @@ from typing import NoReturn, Tuple
 
 from custom_types import Image
 from custom_exceptions import PathToImageIsIncorrectError, PathToVideoIsIncorrectError, \
-                                ImageNotExistsError, CameraIndexIsIncorrect
+    ImageNotExistsError, CameraIndexIsIncorrect
 
 import cv2
 import mediapipe as mp
@@ -107,10 +107,16 @@ def drawing_points_video(source: str | int, rescale: int = 100, window_name: str
         if not success:
             break
 
-        #landmarks for one frame is like for Image.
-        drawing_points_img(img, rescale, window_name, min_detection_confidence, min_tracking_confidence, points_color,
-                           points_thickness, points_radius, connect_color, connect_thickness, connect_radius,
-                           wait_key=1, destroy_window=False)
+        img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+        img = detect_and_draw_landmarks(
+            img_rgb, min_detection_confidence, min_tracking_confidence, points_color,
+            points_thickness, points_radius, connect_color, connect_thickness, connect_radius
+        )
+
+        cv2.imshow(window_name, img)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 
     cv2.destroyWindow(window_name)
 
@@ -148,9 +154,9 @@ def drawing_points_img(source: Image | str, rescale: int = 100, window_name: str
     img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
     img = detect_and_draw_landmarks(
-                                    img_rgb, min_detection_confidence, min_tracking_confidence, points_color,
-                                    points_thickness, points_radius, connect_color, connect_thickness, connect_radius
-                                    )
+        img_rgb, min_detection_confidence, min_tracking_confidence, points_color,
+        points_thickness, points_radius, connect_color, connect_thickness, connect_radius
+    )
 
     cv2.imshow(window_name, img)
     cv2.waitKey(wait_key)
@@ -181,39 +187,45 @@ def detect_and_draw_landmarks(img: Image, min_detection_confidence: float = 0.5,
     :return: Image with drawn landmarks if detected. Otherwise, without drawn landmarks
     """
 
+    hand = mp.solutions.hands
+    draw = mp.solutions.drawing_utils
+    pose = mp.solutions.pose
+
     with mp.solutions.holistic.Holistic(
             min_detection_confidence=min_detection_confidence, min_tracking_confidence=min_tracking_confidence
     ) as holistic:
         results = holistic.process(img)
 
     if results.pose_landmarks:
-        with mp.solutions.holistic as holistic, mp.solutions.pose as pose, mp.solutions.drawing_utils as draw:
-            draw.draw_landmarks(img, results.pose_landmarks, pose.POSE_CONNECTIONS,
-                                draw.DrawingSpec(
-                                    color=points_color, thickness=points_thickness, circle_radius=points_radius
-                                ),
-                                draw.DrawingSpec(
-                                    color=connect_color, thickness=connect_thickness, circle_radius=connect_radius
-                                )
-                                )
+        draw.draw_landmarks(img, results.pose_landmarks, pose.POSE_CONNECTIONS,
+                            draw.DrawingSpec(
+                                color=points_color, thickness=points_thickness, circle_radius=points_radius
+                            ),
+                            draw.DrawingSpec(
+                                color=connect_color, thickness=connect_thickness,
+                                circle_radius=connect_radius
+                            )
+                            )
 
-            draw.draw_landmarks(img, results.left_hand_landmarks, holistic.HAND_CONNECTIONS,
-                                draw.DrawingSpec(
-                                    color=points_color, thickness=points_thickness, circle_radius=points_radius
-                                ),
-                                draw.DrawingSpec(
-                                    color=connect_color, thickness=connect_thickness, circle_radius=connect_radius
-                                )
-                                )
+        draw.draw_landmarks(img, results.left_hand_landmarks, hand.HAND_CONNECTIONS,
+                            draw.DrawingSpec(
+                                color=points_color, thickness=points_thickness, circle_radius=points_radius
+                            ),
+                            draw.DrawingSpec(
+                                color=connect_color, thickness=connect_thickness,
+                                circle_radius=connect_radius
+                            )
+                            )
 
-            draw.draw_landmarks(img, results.right_hand_landmarks, holistic.HAND_CONNECTIONS,
-                                draw.DrawingSpec(
-                                    color=points_color, thickness=points_thickness, circle_radius=points_radius
-                                ),
-                                draw.DrawingSpec(
-                                    color=connect_color, thickness=connect_thickness, circle_radius=connect_radius
-                                )
-                                )
+        draw.draw_landmarks(img, results.right_hand_landmarks, hand.HAND_CONNECTIONS,
+                            draw.DrawingSpec(
+                                color=points_color, thickness=points_thickness, circle_radius=points_radius
+                            ),
+                            draw.DrawingSpec(
+                                color=connect_color, thickness=connect_thickness,
+                                circle_radius=connect_radius
+                            )
+                            )
 
     return img
 
