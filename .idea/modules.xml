@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PSL_recognition.iml" filepath="$PROJECT_DIR$/.idea/PSL_recognition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dynamic_PSL_recognition/.idea/dynamic_PSL_recognition.iml" filepath="$PROJECT_DIR$/../dynamic_PSL_recognition/.idea/dynamic_PSL_recognition.iml" />
+      <module fileurl="file://$APPLICATION_CONFIG_DIR$/projects/gsn/.idea/gsn.iml" filepath="$APPLICATION_CONFIG_DIR$/projects/gsn/.idea/gsn.iml" />
     </modules>
   </component>
 </project>

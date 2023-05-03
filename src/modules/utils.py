@@ -158,11 +158,11 @@ def drawing_points_img(source: Image | str, rescale: int = 100, window_name: str
         points_thickness, points_radius, connect_color, connect_thickness, connect_radius
     )
 
-    cv2.imshow(window_name, img)
-    cv2.waitKey(wait_key)
-
-    if destroy_window:
-        cv2.destroyWindow(window_name)
+    # cv2.imshow(window_name, img)
+    # cv2.waitKey(wait_key)
+    #
+    # if destroy_window:
+    #     cv2.destroyWindow(window_name)
 
     return img
 
