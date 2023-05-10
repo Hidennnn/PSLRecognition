@@ -5,30 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f11437f9-ba2a-4175-9b4c-f874966021b6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/__init__.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../dynamic_PSL_recognition/csv_to_numpy.ipynb" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../dynamic_PSL_recognition/generator.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../dynamic_PSL_recognition/neural_network.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PSL_recognition.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PSL_recognition.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/augemntation.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/augmentation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_types.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/final_model.h5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img_management.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/load_photos.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name_files.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/name_files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_test.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural_network_train.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocessing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/program.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jupyter_notebooks/augemntation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/jupyter_notebooks/augemntation.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jupyter_notebooks/load_photos.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/jupyter_notebooks/load_photos.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jupyter_notebooks/make_photo_with_characteristic_points.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/jupyter_notebooks/make_photo_with_characteristic_points.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jupyter_notebooks/name_files.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/jupyter_notebooks/name_files.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jupyter_notebooks/neural_network/neural_network_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/jupyter_notebooks/neural_network/neural_network_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dynamic_PSL_recognition/tests.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../dynamic_PSL_recognition/tests.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../dynamic_PSL_recognition/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/../dynamic_PSL_recognition/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dynamic_PSL_recognition/video_preprocess.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../dynamic_PSL_recognition/video_preprocess.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +28,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../dynamic_PSL_recognition" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

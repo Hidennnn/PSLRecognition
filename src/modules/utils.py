@@ -114,11 +114,12 @@ def drawing_points_video(source: str | int, rescale: int = 100, window_name: str
             points_thickness, points_radius, connect_color, connect_thickness, connect_radius
         )
 
-        cv2.imshow(window_name, img)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+        # TODO I don't know why, but cv2.imshow() doesn't work anymore.
+        # cv2.imshow(window_name, img)
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        # break
 
-    cv2.destroyWindow(window_name)
+    # cv2.destroyWindow(window_name)
 
 
 def drawing_points_img(source: Image | str, rescale: int = 100, window_name: str = "",
@@ -158,6 +159,7 @@ def drawing_points_img(source: Image | str, rescale: int = 100, window_name: str
         points_thickness, points_radius, connect_color, connect_thickness, connect_radius
     )
 
+    # TODO I don't know why, but cv2.imshow() doesn't work anymore.
     # cv2.imshow(window_name, img)
     # cv2.waitKey(wait_key)
     #
