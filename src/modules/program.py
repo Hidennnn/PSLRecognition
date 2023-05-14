@@ -13,14 +13,16 @@ from PIL import ImageFont
 
 # =============================================== OPTIONS =============================================================
 CAMERA_INDEX = 0  # your camera index
-PATH_TO_LABELS = r"vector_and_distances\labels.txt"  # path to txt with labels
+PATH_TO_LABELS = r"vector_and_distances\labels.txt" # path to txt with labels
+PATH_TO_MODELS = r"C:\Users\PC\OneDrive\Pulpit\projekty\PSL_recognition\models"
+PATH_TO_FONTS = r"C:\Users\PC\OneDrive\Pulpit\projekty\PSL_recognition\src\fonts"
 RESCALE_FACTOR = 50  # what percentage of the size of the original frame will be the frame after rescaling
 
 
 # =============================================== PROGRAM =============================================================
 # load things to prediction
-scaler = joblib.load("scaler.save")
-model = load_model("final_model.h5")
+scaler = joblib.load(f"{PATH_TO_MODELS}\\scaler.save")
+model = load_model(f"{PATH_TO_MODELS}\\final_model.h5")
 
 # based on labels proper caption will be chosen
 labels = {}
@@ -43,7 +45,7 @@ if not camera.isOpened():
 frame_width = int(camera.get(3))
 frame_height = int(camera.get(4))
 
-font = ImageFont.truetype(r"arial.ttf", 80)
+font = ImageFont.truetype(f"{PATH_TO_FONTS}\\arial.ttf", 80)
 text = ""
 
 while True:
