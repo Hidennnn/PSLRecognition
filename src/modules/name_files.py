@@ -1,7 +1,5 @@
-from typing import List, NoReturn
 import os
-
-import numpy as np
+from typing import List, NoReturn
 
 
 def rename_files(path_to_base: str, path_to_not_named_images: str, labels: List[str]) -> NoReturn:

@@ -1,13 +1,13 @@
-from preprocessing import make_vector_of_points, make_distance
-from utils import rescale_img
-from custom_exceptions import PoseNotDetectedError, RightHandNotDetectedError, LeftHandNotDetectedError, \
-    VectorIsNoneError
-
-from tensorflow.keras.models import load_model
-import joblib
 import cv2
+import joblib
 import numpy as np
 from PIL import ImageFont
+from tensorflow.keras.models import load_model
+
+from src.modules.custom_exceptions import PoseNotDetectedError, RightHandNotDetectedError, LeftHandNotDetectedError, \
+    VectorIsNoneError
+from src.modules.preprocessing import make_vector_of_points, make_distance
+from src.modules.utils import rescale_img
 
 # if you want to quit, you need to click "q"
 

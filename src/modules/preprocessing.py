@@ -1,15 +1,16 @@
 from __future__ import annotations
-from typing import List, NamedTuple, Tuple, Any
-from math import sqrt
 
-from custom_types import Point, Vector, Distances, Image
-from custom_exceptions import PoseNotDetectedError, LeftHandNotDetectedError, RightHandNotDetectedError, \
-    VectorIsNoneError
-from utils import open_img
+from math import sqrt
+from typing import NamedTuple, Tuple, Any
 
 import cv2
 import mediapipe as mp
 import numpy as np
+
+from src.modules.custom_exceptions import PoseNotDetectedError, LeftHandNotDetectedError, RightHandNotDetectedError, \
+    VectorIsNoneError
+from src.modules.custom_types import Point, Vector, Distances, Image
+from src.modules.utils import open_img
 
 
 def make_vector_of_points(source: Image | str) -> Vector:

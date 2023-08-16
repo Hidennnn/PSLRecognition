@@ -1,13 +1,14 @@
 from __future__ import annotations
-from typing import NoReturn, Tuple
 
-from custom_types import Image
-from custom_exceptions import PathToImageIsIncorrectError, PathToVideoIsIncorrectError, \
-    ImageNotExistsError, CameraIndexIsIncorrect
+from typing import NoReturn, Tuple
 
 import cv2
 import mediapipe as mp
 import numpy as np
+
+from src.modules.custom_exceptions import PathToImageIsIncorrectError, PathToVideoIsIncorrectError, \
+    ImageNotExistsError, CameraIndexIsIncorrect
+from src.modules.custom_types import Image
 
 
 def open_img(source: np.ndarray | str) -> Image:

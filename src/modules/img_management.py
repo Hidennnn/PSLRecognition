@@ -1,13 +1,14 @@
 from __future__ import annotations
-from os.path import exists
-import os
+
 import csv
+import os
+from os.path import exists
 from typing import List, Any, NoReturn, Tuple
 
-from preprocessing import make_vector_of_points, make_distance
-from custom_types import Vector
-from custom_exceptions import CSVFilesExist, CSVFilesNotExist, BadNumberOfFileNames, PoseNotDetectedError, \
+from src.modules.custom_exceptions import CSVFilesExist, CSVFilesNotExist, BadNumberOfFileNames, PoseNotDetectedError, \
     LeftHandNotDetectedError, RightHandNotDetectedError
+from src.modules.custom_types import Vector
+from src.modules.preprocessing import make_vector_of_points, make_distance
 
 
 def load_img(source: str, error_file_name: str, labels: dict,

@@ -1,11 +1,12 @@
 from __future__ import annotations
-from typing import List, Tuple, NoReturn
-import os
 
-from utils import rescale_img, center_of_img, img_mirror, open_img
-from custom_types import Image
+import os
+from typing import List, Tuple, NoReturn
 
 import cv2
+
+from src.modules.custom_types import Image
+from src.modules.utils import rescale_img, center_of_img, img_mirror, open_img
 
 
 def make_augmentation(database: str, img_in_classes: List[int], labels: List[str], rescale_ratios: List[int],
