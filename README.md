@@ -4,15 +4,35 @@
 It is algorithm to detect 27 Polish Sign Language (PSL) static words from images.
 In static words only hand shape is important - we do not care about movement.
 
-## Results
-95.70% accuracy, 95.62% recall and 95.86% precision - test on "unknown" hand.
+## Technology
+|    **Name**    | **Version** |
+|:--------------:|:-----------:|
+|    `Python`    |   3.8.13    |
+|    `Keras`     |    2.9.0    |
+| `scikit-learn` |    1.1.1    |
+|    `pandas`    |    1.4.3    |
+|    `numpy`     |   1.22.4    |
+|  `matplotlib`  |    3.5.1    |
+|   `seaborn`    |   0.11.2    |
+|    `opencv`    |    4.6.0    |
+|  `mediapipe`   |   0.8.10    |
 
-## Used technologies:
-- Keras
-- Mediapipe
-- Numpy
-- Pandas
-- sklearn
+## Results - test on "unknown" hand
+
+|   **Metric**   |  **Result**  |
+|:--------------:|:------------:|
+|    Accuracy    |    92.76%    |
+|     Recall     |    92.64%    |
+|    Precision   |    92.90%    |
+
+## Architecture
+
+|     **Layer**             |  **Activation**  |  **Dropout**  |
+|:-------------------------:|:----------------:|:-------------:|
+| Input dense - 1035 nodes  |  LeakyReLU - 0.8 |     50%       |
+|     Dense - 512 nodes     |  LeakyReLU - 0.8 |     50%       |  
+|     Dense - 64 nodes      |  LeakyReLU - 0.8 |     50%       |
+|  Output dense - 27 nodes  |      Softmax     |     ---       |
 
 ## How does it work?
 Firstly, the MediaPipe Holistic Solution detects characteristic points of hands and
@@ -53,7 +73,4 @@ https://drive.google.com/drive/folders/1ffpiODeT87HVnRcQohv3iZg0k3i7kUay?usp=sha
 download vectors and distances which were used in projects. 
 
 ## Demo
-
 ![](https://github.com/Hidennnn/PSL_recognition/blob/main/demo.gif)
-
-Article about the algorithm: https://drive.google.com/file/d/1BiQ1X0OU98suErqC_kA631PraXG-Kh9m/view
