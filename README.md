@@ -19,20 +19,20 @@ In static words only hand shape is important - we do not care about movement.
 
 ## Results - test on "unknown" hand
 
-|   **Metric**   |  **Result**  |
-|:--------------:|:------------:|
-|    Accuracy    |    92.76%    |
-|     Recall     |    92.64%    |
-|    Precision   |    92.90%    |
+| **Metric** |  **Result**  |
+|:----------:|:------------:|
+|  Accuracy  |    92.76%    |
+|   Recall   |    92.64%    |
+| Precision  |    92.90%    |
 
 ## Architecture
 
-|     **Layer**             |  **Activation**  |  **Dropout**  |
-|:-------------------------:|:----------------:|:-------------:|
-| Input dense - 1035 nodes  |  LeakyReLU - 0.8 |     50%       |
-|     Dense - 512 nodes     |  LeakyReLU - 0.8 |     50%       |  
-|     Dense - 64 nodes      |  LeakyReLU - 0.8 |     50%       |
-|  Output dense - 27 nodes  |      Softmax     |     ---       |
+|        **Layer**         | **Activation**  | **Dropout** |
+|:------------------------:|:---------------:|:-----------:|
+| Input dense - 1035 nodes | LeakyReLU - 0.8 |     50%     |
+|    Dense - 512 nodes     | LeakyReLU - 0.8 |     50%     |  
+|     Dense - 64 nodes     | LeakyReLU - 0.8 |     50%     |
+| Output dense - 27 nodes  |     Softmax     |     ---     |
 
 ## How does it work?
 Firstly, the MediaPipe Holistic Solution detects characteristic points of hands and
@@ -51,22 +51,16 @@ Network.
 
 ## Modules
 
-augmentation.py - functions to make augmentation with flip, mirroring and resize.
-
-custom_exceptions.py - exceptions customized for project.
-
-custom_types.py - types customized for project.
-
-img_management.py - functions to make csv files with saved landmarks coordinates and distances.
-
-name_files.py - functions to rename photos and move to database.
-
-preprocessing.py - functions to make vectors and compute distances.
-
-utils.py - different functions to operate functions.
+- augmentation.py - functions to make augmentation with flip, mirroring and resize.
+- custom_exceptions.py - exceptions customized for project.
+- custom_types.py - types customized for project.
+- img_management.py - functions to make csv files with saved landmarks coordinates and distances.
+- name_files.py - functions to rename photos and move to database.
+- preprocessing.py - functions to make vectors and compute distances.
+- utils.py - different functions to operate functions.
 
 ## How to use?
-You just need to download labels.txt from the database, add to folder "vector_and_distances" and run program.py! On top of the program.py you can adjust configuration.
+You just need to run program.py! On top of the program.py you can adjust configuration.
 
 ## Database
 https://drive.google.com/drive/folders/1ffpiODeT87HVnRcQohv3iZg0k3i7kUay?usp=sharing - Google Drive where you can 
@@ -74,3 +68,7 @@ download vectors and distances which were used in projects.
 
 ## Demo
 ![](https://github.com/Hidennnn/PSL_recognition/blob/main/demo.gif)
+
+## Disclaimer
+I'm aware that I should not use test set as validation set. I decided to that due to small amount of data, but nowadays,
+I think it would be better to have smaller test set instead of not having validation set.

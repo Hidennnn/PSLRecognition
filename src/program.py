@@ -13,8 +13,8 @@ from src.modules.utils import rescale_img
 
 # =============================================== OPTIONS =============================================================
 CAMERA_INDEX = 0  # your camera index
-PATH_TO_LABELS = r"neural_networks\train_test_data\labels.txt" # path to txt with labels
-PATH_TO_MODELS = r"using/models"
+PATH_TO_LABELS = r"using\data\labels.txt" # path to txt with labels
+PATH_TO_MODELS = r"using\models"
 PATH_TO_FONTS = r"fonts"
 RESCALE_FACTOR = 50  # what percentage of the size of the original frame will be the frame after rescaling
 
